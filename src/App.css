@@ -1,0 +1,128 @@
+* {
+  box-sizing: border-box;
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.2;
+}
+
+/* GENERAL */
+
+.container {
+  width: 1200px;
+  margin: auto;
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: 400;
+
+  margin-bottom: 30px;
+}
+
+/* --------------------------------------- */
+
+/* HEADER */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 40px 20px 40px;
+  border: solid 2px red;
+}
+
+.logo {
+  height: 30px;
+}
+
+header > input {
+  width: 630px;
+  height: 30px;
+}
+
+.user {
+  display: flex;
+  gap: 20px;
+}
+
+.header-button {
+  width: 120px;
+  height: 30px;
+
+  font-size: 12px;
+
+  border: solid 1px #2cb1ba;
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+.colored {
+  background-color: #2cb1ba;
+  color: white;
+}
+
+/* --------------------------------------- */
+
+/* HOME */
+
+.home-background {
+  height: 450px;
+
+  display: flex;
+  align-items: center;
+
+  background-color: lightcyan;
+}
+
+.home-bloc {
+  width: 410px;
+  height: 270px;
+
+  margin-left: 50px;
+  padding: 55px 75px 55px 25px;
+
+  border: solid 2px green;
+}
+
+.offers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  margin-bottom: 20px;
+}
+
+.offer-card {
+  margin-bottom: 40px;
+  border: solid 2px purple;
+}
+
+.owner-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: #999999;
+}
+
+.owner-image {
+  height: 30px;
+  border-radius: 50%;
+}
+
+.clothing-photo {
+  width: 230px;
+  height: 360px;
+  object-fit: cover;
+}
+
+.price {
+  font-size: 16px;
+}
+
+.size-brand {
+  color: #999999;
+}
