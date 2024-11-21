@@ -66,16 +66,20 @@ function Home() {
               {data.offers.map((offer) => {
                 return (
                   <>
-                    {/* OFFER CARD */}
-                    <div key={offer._id} className="offer-card">
-                      {/* Link to offer */}
-                      <Link to={`/offer/${offer._id}`}>
+                    {/* Link to offer */}
+                    <Link to={`/offer/${offer._id}`}>
+                      {/* OFFER CARD */}
+                      <div key={offer._id} className="offer-card">
                         <div className="owner-name">
                           {/* Owner avatar */}
-                          <span>owner Avatar</span>
+                          <img
+                            className="owner-image"
+                            src={offer?.owner?.account?.avatar?.secure_url}
+                            alt="Avatar profil"
+                          />
 
                           {/* Owner name */}
-                          <span>owner Name</span>
+                          <span>{offer.owner.account.username}</span>
                         </div>
 
                         {/* Clothing photo */}
@@ -84,18 +88,31 @@ function Home() {
                           src={offer.product_image.secure_url}
                           alt={offer.product_name}
                         />
-                        {/* Price */}
-                        <p className="price">{offer.product_price} €</p>
 
-                        {/* Size */}
-                        <p className="size-brand">Size</p>
+                        <div>
+                          {/* Price */}
+                          <p className="price">{offer.product_price} €</p>
 
-                        {/* Brand */}
-                        <p className="size-brand">Brand</p>
+                          {/* Size and Brand */}
+                          {offer.product_details.map((brand) => {
+                            return (
+                              <>
+                                <p>{brand.TAILLE ? brand.TAILLE : ""}</p>
+                              </>
+                            );
+                          })}
 
-                        {console.log(offer.product_details)}
-                      </Link>
-                    </div>
+                          {/* Brand */}
+                          {offer.product_details.map((brand) => {
+                            return (
+                              <>
+                                <p>{brand.MARQUE ? brand.MARQUE : ""}</p>
+                              </>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    </Link>
                   </>
                 );
               })}
