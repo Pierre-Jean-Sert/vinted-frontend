@@ -34,7 +34,7 @@ function Header() {
 
   return (
     <header>
-      <div>
+      <div onClick={() => navigate("/")}>
         <img className="logo" src={logo} alt="Vinted Logo" />
       </div>
 
@@ -43,6 +43,7 @@ function Header() {
       {/* Check if user is connecter or not */}
       {isConnected ? (
         <button
+          className=" header-button disconnect-button"
           onClick={() => {
             Cookies.remove("token");
             setIsConnected(false);

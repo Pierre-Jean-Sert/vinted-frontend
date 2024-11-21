@@ -5,6 +5,8 @@
 * Login page
 
 */
+//! Style import
+import "./login.css";
 
 //! Libraries import
 import axios from "axios";
@@ -20,6 +22,7 @@ function Login() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [badRequest, setBadRequest] = useState("");
 
   // Def navigate
   const navigate = useNavigate();
@@ -45,23 +48,25 @@ function Login() {
       const token = response.data.token;
       Cookies.set("token", token, { expires: 7 });
 
-      console.log(token);
-
       //Return to home
       navigate("/");
 
       //
     } catch (error) {
-      console.log(error);
+      console.log(error.response.data.error);
+      if (error.response.data.error === "Unauthorized") {
+        setBadRequest(true);
+      }
     }
   };
 
   return (
     <>
-      <main>
-        <h2>Se connecter</h2>
-        <form onSubmit={handleSubmit}>
+      <main className="log-main">
+        <h2 className="log-h2">Se connecter</h2>
+        <form className="log-form" onSubmit={handleSubmit}>
           <input
+            className="log-input"
             id="email"
             type="text"
             placeholder="Email"
@@ -73,6 +78,7 @@ function Login() {
           ></input>
 
           <input
+            className="log-input"
             id="password"
             type="password"
             placeholder="Mot de passe"
@@ -83,10 +89,21 @@ function Login() {
             value={password}
           ></input>
 
+          {badRequest ? (
+            <p className="sup-account">Mauvais email et/ou mot de passe</p>
+          ) : (
+            ""
+          )}
+
           <div>
-            <button type="submit">Se connecter</button>
+            <button className="log-button" type="submit">
+              Se connecter
+            </button>
           </div>
         </form>
+        <p className="log-bottom-text" onClick={() => navigate("/user/signup")}>
+          Tu as déjà un compte ? Connecte-toi
+        </p>
       </main>
     </>
   );

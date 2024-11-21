@@ -36,6 +36,7 @@ header {
 
 .logo {
   height: 30px;
+  cursor: pointer;
 }
 
 header > input {
@@ -61,6 +62,12 @@ header > input {
   cursor: pointer;
 }
 
+.disconnect-button {
+  background-color: #c2175b;
+  border: solid 1px #c2175b;
+  color: white;
+}
+
 .colored {
   background-color: #2cb1ba;
   color: white;
@@ -78,7 +85,9 @@ header > input {
   display: flex;
   align-items: center;
 
-  background-color: lightcyan;
+  background-image: url("https://lereacteur-vinted.netlify.app/assets/hero-24963eb2.jpg");
+  background-position: center;
+  background-size: cover;
 }
 
 .home-bloc {
@@ -88,7 +97,9 @@ header > input {
   margin-left: 50px;
   padding: 55px 75px 55px 25px;
 
-  border: solid 2px green;
+  background-color: white;
+  border-radius: 5px;
+  border: solid 1px lightgray;
 }
 
 .offers {

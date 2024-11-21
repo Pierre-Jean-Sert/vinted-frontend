@@ -6,6 +6,9 @@
 
 */
 
+//! Style import
+import "./signup.css";
+
 //! Libraries import
 import axios from "axios";
 import Cookies from "js-cookie";
@@ -20,6 +23,8 @@ function Signup() {
   const [userName, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [userExist, setUserExist] = useState("");
+
   const [newsletter, setNewsletter] = useState(false);
 
   // Def navigate
@@ -55,16 +60,19 @@ function Signup() {
 
       //
     } catch (error) {
-      console.log(error);
+      if (error.response.data.message === "This email already has an account") {
+        setUserExist(true);
+      }
     }
   };
 
   return (
     <>
-      <main>
-        <h2>S'inscrire</h2>
-        <form onSubmit={handleSubmit}>
+      <main className="sup-main">
+        <h2 className="sup-h2">S'inscrire</h2>
+        <form className="sup-form" onSubmit={handleSubmit}>
           <input
+            className="sup-input"
             id="userName"
             type="text"
             placeholder="Nom d'utilisateur"
@@ -76,6 +84,7 @@ function Signup() {
           ></input>
 
           <input
+            className="sup-input"
             id="email"
             type="text"
             placeholder="Email"
@@ -86,7 +95,16 @@ function Signup() {
             value={email}
           ></input>
 
+          {userExist ? (
+            <p className="sup-account">
+              Cet email a déjà un compte chez nous !
+            </p>
+          ) : (
+            ""
+          )}
+
           <input
+            className="sup-input"
             id="password"
             type="password"
             placeholder="Mot de passe"
@@ -97,19 +115,33 @@ function Signup() {
             value={password}
           ></input>
 
-          <input
-            type="checkbox"
-            id="newsletter"
-            name="newsletter"
-            onClick={() => setNewsletter(true)}
-          ></input>
+          <div className="checkbox">
+            <input
+              className="checkbox-icon"
+              type="checkbox"
+              id="newsletter"
+              name="newsletter"
+              onClick={() => setNewsletter(true)}
+            ></input>
 
-          <span> S'inscrire à notre newsletter</span>
+            <p>S'inscrire à notre newsletter</p>
+          </div>
+
+          <p className="disclaimer">
+            En m'inscrivant je confirme avoir lu et accepté les Termes &
+            Conditions et Politique de Confidentialité de Vinted. Je confirme
+            avoir au moins 18 ans.
+          </p>
 
           <div>
-            <button type="submit">S'inscrire</button>
+            <button className="sup-button" type="submit">
+              S'inscrire
+            </button>
           </div>
         </form>
+        <p className="sup-bottom-text" onClick={() => navigate("/login")}>
+          Tu as déjà un compte ? Connecte-toi
+        </p>
       </main>
     </>
   );

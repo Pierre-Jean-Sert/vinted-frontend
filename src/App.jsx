@@ -21,8 +21,6 @@ import Login from "./pages/login/login";
 //! Components import
 import Header from "./components/Header";
 
-//! Hooks import
-
 //* APP FUNCTION
 function App() {
   return (
