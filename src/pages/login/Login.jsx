@@ -2,7 +2,7 @@
 
 * Vinted frontend
 
-* Signup page
+* Login page
 
 */
 
@@ -14,13 +14,12 @@ import Cookies from "js-cookie";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-//* SIGNUP FUNCTION
-function Signup() {
+//* LOGIN FUNCTION
+function Login() {
   //Form states
-  const [userName, setUsername] = useState("");
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [newsletter, setNewsletter] = useState(false);
 
   // Def navigate
   const navigate = useNavigate();
@@ -35,12 +34,10 @@ function Signup() {
     try {
       // Axios request
       const response = await axios.post(
-        "https://lereacteur-vinted-api.herokuapp.com/user/signup",
+        "https://lereacteur-vinted-api.herokuapp.com/user/login",
         {
-          username: userName,
           email: email,
           password: password,
-          newsletter: newsletter,
         }
       );
 
@@ -62,19 +59,8 @@ function Signup() {
   return (
     <>
       <main>
-        <h2>S'inscrire</h2>
+        <h2>Se connecter</h2>
         <form onSubmit={handleSubmit}>
-          <input
-            id="userName"
-            type="text"
-            placeholder="Nom d'utilisateur"
-            name="userName"
-            onChange={(event) => {
-              setUsername(event.target.value);
-            }}
-            value={userName}
-          ></input>
-
           <input
             id="email"
             type="text"
@@ -97,17 +83,8 @@ function Signup() {
             value={password}
           ></input>
 
-          <input
-            type="checkbox"
-            id="newsletter"
-            name="newsletter"
-            onClick={() => setNewsletter(true)}
-          ></input>
-
-          <span> S'inscrire à notre newsletter</span>
-
           <div>
-            <button type="submit">S'inscrire</button>
+            <button type="submit">Se connecter</button>
           </div>
         </form>
       </main>
@@ -115,4 +92,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default Login;

@@ -16,6 +16,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
 import Signup from "./pages/signup/Signup";
+import Login from "./pages/login/login";
 
 //! Components import
 import Header from "./components/Header";
@@ -37,6 +38,8 @@ function App() {
           <Route path="/offers/:id" element={<Offer></Offer>}></Route>
           {/* Signup route */}
           <Route path="/user/signup" element={<Signup></Signup>}></Route>
+          {/* Login route */}
+          <Route path="/login" element={<Login></Login>}></Route>
         </Routes>
       </Router>
 

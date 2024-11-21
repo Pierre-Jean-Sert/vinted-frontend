@@ -58,7 +58,9 @@ function Header() {
           >
             S'inscrire
           </button>
-          <button className="header-button">Se connecter</button>
+          <button className="header-button" onClick={() => navigate("/login")}>
+            Se connecter
+          </button>
         </div>
       )}
 
