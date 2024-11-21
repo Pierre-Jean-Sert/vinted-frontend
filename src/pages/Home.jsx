@@ -67,9 +67,9 @@ function Home() {
                 return (
                   <>
                     {/* Link to offer */}
-                    <Link to={`/offer/${offer._id}`}>
+                    <Link key={offer._id} to={`/offers/${offer._id}`}>
                       {/* OFFER CARD */}
-                      <div key={offer._id} className="offer-card">
+                      <div className="offer-card">
                         <div className="owner-name">
                           {/* Owner avatar */}
                           <img
@@ -91,7 +91,9 @@ function Home() {
 
                         <div>
                           {/* Price */}
-                          <p className="price">{offer.product_price} €</p>
+                          <p className="price">
+                            {offer.product_price.toFixed(2)} €
+                          </p>
 
                           {/* Size and Brand */}
                           {offer.product_details.map((brand) => {

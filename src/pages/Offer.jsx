@@ -18,7 +18,6 @@ function Offer() {
   const { id } = useParams();
   const url = "https://lereacteur-vinted-api.herokuapp.com/v2/offers/" + id;
 
-  //
   //States
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -44,14 +43,19 @@ function Offer() {
 
     //fetchData calling
     fetchData();
-  }, []);
+  }, [url]);
 
   return (
-    <section>
-      Je suis l'offre {id}
-      {isLoading || console.log(data.owner.account.username)}
-      <h2>A faire !!!</h2>
-    </section>
+    <>
+      {isLoading ? (
+        <p>En cours de chargement...</p>
+      ) : (
+        <main>
+          <div>Image</div>
+          <div>Bloc de texte</div>
+        </main>
+      )}
+    </>
   );
 }
 
