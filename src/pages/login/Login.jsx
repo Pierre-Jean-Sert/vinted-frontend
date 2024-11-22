@@ -22,7 +22,7 @@ function Login({ setUserToken }) {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [badRequest, setBadRequest] = useState("");
+  const [badRequest, setBadRequest] = useState(null);
 
   // Def navigate
   const navigate = useNavigate();
@@ -58,7 +58,9 @@ function Login({ setUserToken }) {
     } catch (error) {
       console.log(error.response.data.error);
       if (error.response.data.error === "Unauthorized") {
-        setBadRequest(true);
+        setBadRequest("Mauvais email et/ou mot de passe");
+      } else {
+        setBadRequest("Erreur du serveur, veuillez réessayer");
       }
     }
   };
@@ -68,6 +70,9 @@ function Login({ setUserToken }) {
       <main className="log-main">
         <h2 className="log-h2">Se connecter</h2>
         <form className="log-form" onSubmit={handleSubmit}>
+          {/*Form validation */}
+          {badRequest ? <p className="sup-account">{badRequest}</p> : ""}
+
           <input
             className="log-input"
             id="email"
@@ -91,12 +96,6 @@ function Login({ setUserToken }) {
             }}
             value={password}
           ></input>
-
-          {badRequest ? (
-            <p className="sup-account">Mauvais email et/ou mot de passe</p>
-          ) : (
-            ""
-          )}
 
           <div>
             <button className="log-button" type="submit">

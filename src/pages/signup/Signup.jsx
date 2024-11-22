@@ -24,7 +24,7 @@ function Signup({ setUserToken }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [newsletter, setNewsletter] = useState(false);
-  const [userExist, setUserExist] = useState("");
+  const [badRequest, setBadRequest] = useState(null);
 
   // Def navigate
   const navigate = useNavigate();
@@ -34,6 +34,11 @@ function Signup({ setUserToken }) {
     //
     // Prevent browser refresh
     event.preventDefault();
+
+    //Check fields
+    if (!userName || !email || !password) {
+      return setBadRequest("Un ou plusieurs champs sont vides");
+    }
 
     //Axios request
     try {
@@ -60,8 +65,11 @@ function Signup({ setUserToken }) {
 
       //
     } catch (error) {
+      console.log(error.response.data.error);
       if (error.response.data.message === "This email already has an account") {
-        setUserExist(true);
+        setBadRequest("Cet email a déjà un compte chez nous !");
+      } else {
+        setBadRequest("Erreur du serveur, veuillez réessayer");
       }
     }
   };
@@ -71,6 +79,9 @@ function Signup({ setUserToken }) {
       <main className="sup-main">
         <h2 className="sup-h2">S'inscrire</h2>
         <form className="sup-form" onSubmit={handleSubmit}>
+          {/*Form validation */}
+          {badRequest ? <p className="sup-account">{badRequest}</p> : ""}
+
           <input
             className="sup-input"
             id="userName"
@@ -94,14 +105,6 @@ function Signup({ setUserToken }) {
             }}
             value={email}
           ></input>
-
-          {userExist ? (
-            <p className="sup-account">
-              Cet email a déjà un compte chez nous !
-            </p>
-          ) : (
-            ""
-          )}
 
           <input
             className="sup-input"

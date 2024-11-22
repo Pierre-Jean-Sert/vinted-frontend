@@ -142,7 +142,8 @@ header > input {
 .offers {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+
+  gap: 10px;
 
   margin-top: 30px;
 }
@@ -241,6 +242,10 @@ header > input {
   border-radius: 5px;
 
   cursor: pointer;
+}
+
+.offer-right-bloc > button:hover {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .offer-price {
