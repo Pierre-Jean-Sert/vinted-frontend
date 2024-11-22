@@ -17,7 +17,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 //* LOGIN FUNCTION
-function Login({ userToken, setUserToken }) {
+function Login({ setUserToken }) {
   //Form states
 
   const [email, setEmail] = useState("");

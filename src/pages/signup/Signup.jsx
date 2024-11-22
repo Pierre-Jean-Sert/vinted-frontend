@@ -18,7 +18,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 //* SIGNUP FUNCTION
-function Signup({ userToken, setUserToken }) {
+function Signup({ setUserToken }) {
   //Form states
   const [userName, setUsername] = useState("");
   const [email, setEmail] = useState("");
