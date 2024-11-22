@@ -102,7 +102,7 @@ function Login() {
           </div>
         </form>
         <p className="log-bottom-text" onClick={() => navigate("/user/signup")}>
-          Tu as déjà un compte ? Connecte-toi
+          Pas encore de compte ? Inscris-toi !
         </p>
       </main>
     </>
