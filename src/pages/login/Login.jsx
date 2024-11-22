@@ -17,7 +17,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 //* LOGIN FUNCTION
-function Login() {
+function Login({ userToken, setUserToken }) {
   //Form states
 
   const [email, setEmail] = useState("");
@@ -47,6 +47,9 @@ function Login() {
       //Token collected and stocked in cookies
       const token = response.data.token;
       Cookies.set("token", token, { expires: 7 });
+
+      //userToken state update
+      setUserToken(response.data.token);
 
       //Return to home
       navigate("/");

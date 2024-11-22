@@ -14,23 +14,12 @@ import Cookies from "js-cookie";
 
 //! Hooks import
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
 
 //* HEADER FUNCTION
-function Header() {
+function Header({ userToken, setUserToken }) {
   //
   // Def navigate
   const navigate = useNavigate();
-
-  //States
-  const [isConnected, setIsConnected] = useState(false);
-
-  // Check Token and connection
-  useEffect(() => {
-    if (Cookies.get("token")) {
-      setIsConnected(true);
-    }
-  }, []);
 
   return (
     <header>
@@ -47,12 +36,12 @@ function Header() {
       ></input>
 
       {/* Check if user is connecter or not */}
-      {isConnected ? (
+      {userToken ? (
         <button
           className=" header-button disconnect-button"
           onClick={() => {
             Cookies.remove("token");
-            setIsConnected(false);
+            setUserToken(null);
           }}
         >
           Se déconnecter

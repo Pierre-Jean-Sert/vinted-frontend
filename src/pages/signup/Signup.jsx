@@ -18,14 +18,13 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 //* SIGNUP FUNCTION
-function Signup() {
+function Signup({ userToken, setUserToken }) {
   //Form states
   const [userName, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [userExist, setUserExist] = useState("");
-
   const [newsletter, setNewsletter] = useState(false);
+  const [userExist, setUserExist] = useState("");
 
   // Def navigate
   const navigate = useNavigate();
@@ -53,7 +52,8 @@ function Signup() {
       const token = response.data.token;
       Cookies.set("token", token, { expires: 7 });
 
-      console.log(token);
+      //userToken state update
+      setUserToken(response.data.token);
 
       //Return to home
       navigate("/");
@@ -121,7 +121,8 @@ function Signup() {
               type="checkbox"
               id="newsletter"
               name="newsletter"
-              onClick={() => setNewsletter(true)}
+              onChange={() => setNewsletter(!newsletter)}
+              checked={newsletter}
             ></input>
 
             <p>S'inscrire à notre newsletter</p>
