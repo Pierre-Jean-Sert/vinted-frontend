@@ -38,7 +38,13 @@ function Header() {
         <img className="logo" src={logo} alt="Vinted Logo" />
       </div>
 
-      <input></input>
+      <input
+        className="search"
+        id="search"
+        type="text"
+        placeholder="Rechercher des articles"
+        name="search"
+      ></input>
 
       {/* Check if user is connecter or not */}
       {isConnected ? (

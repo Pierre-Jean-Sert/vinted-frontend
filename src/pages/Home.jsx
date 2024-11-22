@@ -51,9 +51,11 @@ function Home() {
       <main>
         {/* Bloc 1 : Background image and bloc */}
         <div className="home-background">
-          <div className=" container home-bloc">
-            <h2>Prêts à faire du tri dans vos placards ?</h2>
-            <button className="sell">Commencer à vendre</button>
+          <div className="container">
+            <div className="home-bloc">
+              <h2>Prêts à faire du tri dans vos placards ?</h2>
+              <button className="home-button">Commencer à vendre</button>
+            </div>
           </div>
         </div>
 
@@ -99,7 +101,9 @@ function Home() {
                           {offer.product_details.map((brand) => {
                             return (
                               <>
-                                <p>{brand.TAILLE ? brand.TAILLE : ""}</p>
+                                <p className="size-brand">
+                                  {brand.TAILLE ? brand.TAILLE : ""}
+                                </p>
                               </>
                             );
                           })}
@@ -108,7 +112,9 @@ function Home() {
                           {offer.product_details.map((brand) => {
                             return (
                               <>
-                                <p>{brand.MARQUE ? brand.MARQUE : ""}</p>
+                                <p className="size-brand">
+                                  {brand.MARQUE ? brand.MARQUE : ""}
+                                </p>
                               </>
                             );
                           })}

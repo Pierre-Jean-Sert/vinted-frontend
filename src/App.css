@@ -31,7 +31,8 @@ header {
   align-items: center;
 
   padding: 20px 40px 20px 40px;
-  border: solid 2px red;
+
+  /* border: solid 2px red; */
 }
 
 .logo {
@@ -62,10 +63,18 @@ header > input {
   cursor: pointer;
 }
 
+.header-button:hover {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
 .disconnect-button {
   background-color: #c2175b;
   border: solid 1px #c2175b;
   color: white;
+}
+
+.disconnect-button:hover {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .colored {
@@ -73,6 +82,16 @@ header > input {
   color: white;
 
   cursor: pointer;
+}
+
+.search {
+  height: 35px;
+
+  background-color: #f5f6f7;
+  color: #999999;
+
+  border-radius: 5px;
+  border: none;
 }
 
 /* --------------------------------------- */
@@ -94,12 +113,30 @@ header > input {
   width: 410px;
   height: 270px;
 
-  margin-left: 50px;
   padding: 55px 75px 55px 25px;
 
   background-color: white;
   border-radius: 5px;
   border: solid 1px lightgray;
+}
+
+.home-button {
+  width: 190px;
+  height: 50px;
+
+  font-size: 14px;
+
+  background-color: #2cb1ba;
+  color: white;
+
+  border: none;
+  border-radius: 5px;
+
+  cursor: pointer;
+}
+
+.home-button:hover {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .offers {
@@ -112,12 +149,13 @@ header > input {
 
 .offer-card {
   margin-bottom: 40px;
-  border: solid 2px purple;
 
   height: 460px;
 
   display: flex;
   flex-direction: column;
+
+  /* border: solid 2px purple; */
 }
 
 .owner-name {
@@ -127,6 +165,8 @@ header > input {
 
   color: #999999;
   font-size: 12px;
+
+  margin-bottom: 10px;
 }
 
 .owner-image {
@@ -138,14 +178,18 @@ header > input {
   width: 230px;
   height: 360px;
   object-fit: cover;
+
+  padding-bottom: 10px;
 }
 
 .price {
-  font-size: 16px;
+  font-size: 15px;
+  margin-bottom: 2px;
 }
 
 .size-brand {
   color: #999999;
+  font-size: 14px;
 }
 
 /* OFFER */
