@@ -30,14 +30,12 @@ function Home({ userSearch, userSort }) {
     title: userSearch,
   };
 
-  const filterBuilder = Object.entries(filters)
+  const filterBuilder = Object.entries(filters) // Made with ChatGpt
     .filter(([_, value]) => value !== "")
     .map(([key, value]) => `${key}=${value}`)
     .join("&");
 
   const url = baseUrl + "?" + filterBuilder;
-
-  console.log(url);
 
   //useEffect hook to recover data from API
   useEffect(() => {

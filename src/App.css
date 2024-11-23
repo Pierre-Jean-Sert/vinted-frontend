@@ -17,8 +17,6 @@ html {
 h2 {
   font-size: 30px;
   font-weight: 400;
-
-  margin-bottom: 30px;
 }
 
 /* --------------------------------------- */
@@ -36,7 +34,7 @@ header {
 }
 
 .logo {
-  height: 30px;
+  height: 32px;
   cursor: pointer;
 }
 
@@ -52,6 +50,7 @@ header {
   font-size: 12px;
 
   border: solid 1px #2cb1ba;
+  color: #2cb1ba;
   border-radius: 5px;
   background-color: transparent;
 
@@ -175,7 +174,7 @@ header {
 }
 
 input:checked + .slider {
-  background-color: #00bcd4;
+  background-color: #2cb1ba;
 }
 
 input:checked + .slider:before {
@@ -199,10 +198,15 @@ input:checked + .slider:before {
 }
 
 .home-bloc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+
   width: 410px;
   height: 270px;
 
-  padding: 55px 75px 55px 25px;
+  padding: 25px;
 
   background-color: white;
   border-radius: 5px;
@@ -289,6 +293,8 @@ input:checked + .slider:before {
   color: #999999;
   font-size: 14px;
 }
+
+/* --------------------------------------- */
 
 /* OFFER */
 
@@ -401,3 +407,5 @@ input:checked + .slider:before {
   height: 50px;
   border-radius: 50%;
 }
+
+/* --------------------------------------- */
