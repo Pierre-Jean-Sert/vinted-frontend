@@ -16,7 +16,14 @@ import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 
 //* HEADER FUNCTION
-function Header({ userToken, setUserToken }) {
+function Header({
+  userToken,
+  setUserToken,
+  userSearch,
+  setUserSearch,
+  userSort,
+  setUserSort,
+}) {
   //
   // Def navigate
   const navigate = useNavigate();
@@ -27,18 +34,46 @@ function Header({ userToken, setUserToken }) {
         <img className="logo" src={logo} alt="Vinted Logo" />
       </div>
 
+      {/* Filters */}
       <div className="filters">
         <div className="search">
           <i className="fa-solid fa-magnifying-glass"></i>
+
+          {/* Search bar */}
           <input
             id="search"
             type="text"
             placeholder="Rechercher des articles"
             name="search"
+            onChange={(event) => {
+              setUserSearch(event.target.value);
+            }}
+            value={userSearch}
           ></input>
         </div>
 
-        <div></div>
+        {/* Other filters */}
+        <div className="other-filters">
+          <div>
+            <p>Trier par prix :</p>
+            {/* Switch */}
+            <label class="switch">
+              <input
+                id="switch"
+                name="switch"
+                type="checkbox"
+                onClick={() => {
+                  if (userSort === "price-asc") {
+                    setUserSort("price-desc");
+                  } else {
+                    setUserSort("price-asc");
+                  }
+                }}
+              ></input>
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
       </div>
 
       {/* Check if user is connecter or not */}

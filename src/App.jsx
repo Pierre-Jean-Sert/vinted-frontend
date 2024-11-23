@@ -28,20 +28,35 @@ import { useState } from "react";
 //* APP FUNCTION
 function App() {
   //
-  // State
+  // Shared states
   const [userToken, setUserToken] = useState(Cookies.get("token") || null);
+  const [userSearch, setUserSearch] = useState("");
+  const [userSort, setUserSort] = useState("price-asc");
 
   return (
     <>
       {/* ROUTES */}
       <Router>
         {/* HEADER */}
-        <Header userToken={userToken} setUserToken={setUserToken}></Header>
+        <Header
+          userToken={userToken}
+          setUserToken={setUserToken}
+          userSearch={userSearch}
+          setUserSearch={setUserSearch}
+          userSort={userSort}
+          setUserSort={setUserSort}
+        ></Header>
+
         <Routes>
           {/* Home route */}
-          <Route path="/" element={<Home></Home>}></Route>
+          <Route
+            path="/"
+            element={<Home userSearch={userSearch} userSort={userSort}></Home>}
+          ></Route>
+
           {/* Offer route */}
           <Route path="/offers/:id" element={<Offer></Offer>}></Route>
+
           {/* Signup route */}
           <Route
             path="/user/signup"
@@ -52,6 +67,7 @@ function App() {
               ></Signup>
             }
           ></Route>
+
           {/* Login route */}
           <Route
             path="/login"

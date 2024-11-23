@@ -14,11 +14,30 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 //* HOME FUNCTION
-function Home() {
+function Home({ userSearch, userSort }) {
   //
   //States
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+
+  // Url builder
+  const baseUrl = "https://lereacteur-vinted-api.herokuapp.com/v2/offers";
+
+  const filters = {
+    priceMin: "",
+    priceMax: "",
+    sort: userSort,
+    title: userSearch,
+  };
+
+  const filterBuilder = Object.entries(filters)
+    .filter(([_, value]) => value !== "")
+    .map(([key, value]) => `${key}=${value}`)
+    .join("&");
+
+  const url = baseUrl + "?" + filterBuilder;
+
+  console.log(url);
 
   //useEffect hook to recover data from API
   useEffect(() => {
@@ -27,9 +46,7 @@ function Home() {
 
       try {
         // Axios request
-        const response = await axios.get(
-          "https://lereacteur-vinted-api.herokuapp.com/v2/offers"
-        );
+        const response = await axios.get(url);
 
         //Response.data stocked in data state
         setData(response.data);
@@ -43,7 +60,7 @@ function Home() {
 
     //fetchData calling
     fetchData();
-  }, []);
+  }, [userSearch, userSort]);
 
   return (
     <>
@@ -63,6 +80,8 @@ function Home() {
         <div className="container">
           {isLoading ? (
             <p>En cours de chargement...</p>
+          ) : data.offers.length === 0 ? (
+            <p className="no-result">Aucun résultat </p>
           ) : (
             <div className="offers">
               {data.offers.map((offer) => {
