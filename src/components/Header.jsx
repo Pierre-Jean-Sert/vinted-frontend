@@ -73,6 +73,11 @@ function Header({
               <span class="slider"></span>
             </label>
           </div>
+
+          {/* Slider */}
+          <div>
+            <p>Prix entre :</p>
+          </div>
         </div>
       </div>
 
