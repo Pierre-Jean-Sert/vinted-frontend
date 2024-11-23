@@ -27,13 +27,19 @@ function Header({ userToken, setUserToken }) {
         <img className="logo" src={logo} alt="Vinted Logo" />
       </div>
 
-      <input
-        className="search"
-        id="search"
-        type="text"
-        placeholder="Rechercher des articles"
-        name="search"
-      ></input>
+      <div className="filters">
+        <div className="search">
+          <i className="fa-solid fa-magnifying-glass"></i>
+          <input
+            id="search"
+            type="text"
+            placeholder="Rechercher des articles"
+            name="search"
+          ></input>
+        </div>
+
+        <div></div>
+      </div>
 
       {/* Check if user is connecter or not */}
       {userToken ? (

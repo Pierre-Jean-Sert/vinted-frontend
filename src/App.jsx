@@ -14,8 +14,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Cookies from "js-cookie";
 
 //! Pages import
-import Home from "./pages/Home";
-import Offer from "./pages/Offer";
+import Home from "./pages/home/Home";
+import Offer from "./pages/offers/Offer";
 import Signup from "./pages/signup/Signup";
 import Login from "./pages/login/login";
 
