@@ -57,7 +57,7 @@ function Header({
           <div>
             <p>Trier par prix :</p>
             {/* Switch */}
-            <label class="switch">
+            <label className="switch">
               <input
                 id="switch"
                 name="switch"
@@ -70,7 +70,7 @@ function Header({
                   }
                 }}
               ></input>
-              <span class="slider"></span>
+              <span className="slider"></span>
             </label>
           </div>
 
