@@ -15,6 +15,9 @@ import Cookies from "js-cookie";
 //! Hooks import
 import { useNavigate } from "react-router-dom";
 
+//! Component import
+import LabeledTwoThumbs from "./LabeledTwoThumbs";
+
 //* HEADER FUNCTION
 function Header({
   userToken,
@@ -23,6 +26,8 @@ function Header({
   setUserSearch,
   userSort,
   setUserSort,
+  userPrice,
+  setUserPrice,
 }) {
   //
   // Def navigate
@@ -77,6 +82,13 @@ function Header({
           {/* Slider */}
           <div>
             <p>Prix entre :</p>
+            <div>
+              <LabeledTwoThumbs
+                rtl={false}
+                userPrice={userPrice}
+                setUserPrice={setUserPrice}
+              />
+            </div>
           </div>
         </div>
       </div>

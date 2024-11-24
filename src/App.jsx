@@ -32,6 +32,7 @@ function App() {
   const [userToken, setUserToken] = useState(Cookies.get("token") || null);
   const [userSearch, setUserSearch] = useState("");
   const [userSort, setUserSort] = useState("price-asc");
+  const [userPrice, setUserPrice] = useState([10, 200]);
 
   return (
     <>
@@ -45,13 +46,21 @@ function App() {
           setUserSearch={setUserSearch}
           userSort={userSort}
           setUserSort={setUserSort}
+          userPrice={userPrice}
+          setUserPrice={setUserPrice}
         ></Header>
 
         <Routes>
           {/* Home route */}
           <Route
             path="/"
-            element={<Home userSearch={userSearch} userSort={userSort}></Home>}
+            element={
+              <Home
+                userSearch={userSearch}
+                userSort={userSort}
+                userPrice={userPrice}
+              ></Home>
+            }
           ></Route>
 
           {/* Offer route */}

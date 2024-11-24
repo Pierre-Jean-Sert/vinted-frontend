@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 //* HOME FUNCTION
-function Home({ userSearch, userSort }) {
+function Home({ userSearch, userSort, userPrice }) {
   //
   //States
   const [data, setData] = useState({});
@@ -24,8 +24,8 @@ function Home({ userSearch, userSort }) {
   const baseUrl = "https://lereacteur-vinted-api.herokuapp.com/v2/offers";
 
   const filters = {
-    priceMin: "",
-    priceMax: "",
+    priceMin: userPrice[0],
+    priceMax: userPrice[1],
     sort: userSort,
     title: userSearch,
   };
@@ -58,7 +58,7 @@ function Home({ userSearch, userSort }) {
 
     //fetchData calling
     fetchData();
-  }, [userSearch, userSort]);
+  }, [userSearch, userSort, userPrice]);
 
   return (
     <>
