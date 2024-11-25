@@ -18,7 +18,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 //* SIGNUP FUNCTION
-function Signup({ setUserToken }) {
+function Signup({ setUserToken, setVisible }) {
   //Form states
   const [userName, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -59,6 +59,9 @@ function Signup({ setUserToken }) {
 
       //userToken state update
       setUserToken(response.data.token);
+
+      //Close modal
+      setVisible(false);
 
       //Return to home
       navigate("/");

@@ -81,6 +81,7 @@ function App() {
             setVisible={setVisible}
             component={component}
             setComponent={setComponent}
+            setUserToken={setUserToken}
           ></Modal>
         )}
       </Router>

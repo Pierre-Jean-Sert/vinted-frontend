@@ -10,9 +10,8 @@
 import Signup from "../pages/signup/Signup";
 import Login from "../pages/login/login";
 
-function Modal({ setVisible, component }) {
+function Modal({ setVisible, component, setUserToken }) {
   //
-  console.log(component);
 
   return (
     <div className="modal-root">
@@ -32,8 +31,19 @@ function Modal({ setVisible, component }) {
           X
         </button>
         <div>
-          {component === "signup" ? <Signup></Signup> : ""}{" "}
-          {component === "login" ? <Login setVisible={setVisible}></Login> : ""}
+          {component === "signup" ? (
+            <Signup
+              setVisible={setVisible}
+              setUserToken={setUserToken}
+            ></Signup>
+          ) : (
+            ""
+          )}
+          {component === "login" ? (
+            <Login setVisible={setVisible} setUserToken={setUserToken}></Login>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </div>
