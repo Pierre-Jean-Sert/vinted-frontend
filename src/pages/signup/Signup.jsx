@@ -146,7 +146,7 @@ function Signup({ setUserToken, setVisible }) {
             </button>
           </div>
         </form>
-        <p className="sup-bottom-text" onClick={() => navigate("/login")}>
+        <p className="sup-bottom-text" onClick={() => setVisible(false)}>
           Tu as déjà un compte ? Connecte-toi
         </p>
       </main>

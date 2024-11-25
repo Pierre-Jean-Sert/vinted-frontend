@@ -21,7 +21,6 @@ function Modal({ setVisible, component, setUserToken }) {
           event.stopPropagation();
         }}
       >
-        {/* button pour fermer la modal */}
         <button
           className="modal-button"
           onClick={() => {
@@ -31,6 +30,7 @@ function Modal({ setVisible, component, setUserToken }) {
           X
         </button>
         <div>
+          {/* Signup component call */}
           {component === "signup" ? (
             <Signup
               setVisible={setVisible}
@@ -39,6 +39,7 @@ function Modal({ setVisible, component, setUserToken }) {
           ) : (
             ""
           )}
+          {/* Signup component call */}
           {component === "login" ? (
             <Login setVisible={setVisible} setUserToken={setUserToken}></Login>
           ) : (

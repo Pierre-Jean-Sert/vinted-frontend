@@ -411,11 +411,7 @@ input:checked + .slider:before {
 
 /* --------------------------------------- */
 
-/* MODAL */
-
-.App {
-  position: relative;
-}
+/* MODAL => Day9 course */
 
 .modal-root {
   /* Pour que la modal prenne tout l'écran : */
