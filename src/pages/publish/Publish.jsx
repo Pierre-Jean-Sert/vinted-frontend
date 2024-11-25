@@ -6,6 +6,8 @@
 
 */
 
+import Login from "../login/Login";
+
 //! Style import
 import "./publish.css";
 
@@ -17,7 +19,13 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 //* PUBLISH FUNCTION
-function Publish({ userToken, visible, setVisible, setComponent }) {
+function Publish({
+  userToken,
+  visible,
+  setVisible,
+  setComponent,
+  setUrlToNavigate,
+}) {
   //
 
   //Form states
@@ -42,6 +50,8 @@ function Publish({ userToken, visible, setVisible, setComponent }) {
   // * Check user connection
   useEffect(() => {
     if (!userToken) {
+      navigate("/");
+      setUrlToNavigate("/publish");
       setVisible(!visible);
       setComponent("login");
     }

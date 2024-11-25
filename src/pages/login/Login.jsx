@@ -18,7 +18,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 //* LOGIN FUNCTION
-function Login({ setUserToken, setVisible }) {
+function Login({ setUserToken, setVisible, urlToNavigate }) {
   //
   //Form states
   const [email, setEmail] = useState("");
@@ -55,8 +55,8 @@ function Login({ setUserToken, setVisible }) {
       //Close modal
       setVisible(false);
 
-      //Return to home
-      navigate("/");
+      //Navigate to URL
+      navigate(urlToNavigate);
 
       //
     } catch (error) {

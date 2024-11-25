@@ -37,6 +37,7 @@ function App() {
   // Modal states
   const [visible, setVisible] = useState(false);
   const [component, setComponent] = useState("");
+  const [urlToNavigate, setUrlToNavigate] = useState("/");
 
   return (
     <>
@@ -55,6 +56,7 @@ function App() {
           setVisible={setVisible}
           component={component}
           setComponent={setComponent}
+          setUrlToNavigate={setUrlToNavigate}
         ></Header>
 
         {/* ROUTES */}
@@ -83,6 +85,7 @@ function App() {
                 visible={visible}
                 setVisible={setVisible}
                 setComponent={setComponent}
+                setUrlToNavigate={setUrlToNavigate}
               ></Publish>
             }
           ></Route>
@@ -95,6 +98,7 @@ function App() {
             component={component}
             setComponent={setComponent}
             setUserToken={setUserToken}
+            urlToNavigate={urlToNavigate}
           ></Modal>
         )}
       </Router>

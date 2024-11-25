@@ -10,7 +10,7 @@
 import Signup from "../pages/signup/Signup";
 import Login from "../pages/login/login";
 
-function Modal({ setVisible, component, setUserToken }) {
+function Modal({ setVisible, component, setUserToken, urlToNavigate }) {
   //
 
   return (
@@ -41,7 +41,11 @@ function Modal({ setVisible, component, setUserToken }) {
           )}
           {/* Signup component call */}
           {component === "login" ? (
-            <Login setVisible={setVisible} setUserToken={setUserToken}></Login>
+            <Login
+              setVisible={setVisible}
+              setUserToken={setUserToken}
+              urlToNavigate={urlToNavigate}
+            ></Login>
           ) : (
             ""
           )}

@@ -31,6 +31,7 @@ function Header({
   visible,
   setVisible,
   setComponent,
+  setUrlToNavigate,
 }) {
   //
   // Def navigate
@@ -114,6 +115,7 @@ function Header({
             onClick={() => {
               setVisible(!visible);
               setComponent("signup");
+              setUrlToNavigate("/");
             }}
           >
             S'inscrire
@@ -123,6 +125,7 @@ function Header({
             onClick={() => {
               setVisible(!visible);
               setComponent("login");
+              setUrlToNavigate("/");
             }}
           >
             Se connecter
