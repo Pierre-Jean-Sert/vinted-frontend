@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 
 //! Hooks import
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 //* HOME FUNCTION
 function Home({ userSearch, userSort, userPrice }) {
@@ -19,6 +20,9 @@ function Home({ userSearch, userSort, userPrice }) {
   //States
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+
+  // Def navigate
+  const navigate = useNavigate();
 
   // Url builder
   const baseUrl = "https://lereacteur-vinted-api.herokuapp.com/v2/offers?";
@@ -70,7 +74,14 @@ function Home({ userSearch, userSort, userPrice }) {
           <div className="container">
             <div className="home-bloc">
               <h2>Prêts à faire du tri dans vos placards ?</h2>
-              <button className="home-button">Commencer à vendre</button>
+              <button
+                className="home-button"
+                onClick={() => {
+                  navigate("/publish");
+                }}
+              >
+                Commencer à vendre
+              </button>
             </div>
           </div>
         </div>

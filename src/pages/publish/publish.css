@@ -1,0 +1,239 @@
+.pub-main {
+  background-color: #ebedee;
+  min-height: 100vh;
+}
+
+.pub-h2 {
+  font-size: 24px;
+  margin-bottom: 30px;
+  padding-top: 30px;
+}
+
+/* --------------------------------------- */
+
+/* FORM */
+
+.pub-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  width: 1100px;
+
+  font-size: 16 px;
+}
+
+/* --------------------------------------- */
+
+/* FILE */
+
+.pub-file {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 250px;
+
+  background-color: white;
+  border: solid 1px lightgray;
+  border-radius: 5px;
+}
+
+.pub-file > label {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2baeb7;
+
+  border: solid 1px #2baeb7;
+  padding: 15px;
+
+  cursor: pointer;
+}
+
+.pub-file > input {
+  display: none;
+}
+
+/* --------------------------------------- */
+
+/* TITLE AND DESCRIPTION */
+
+.pub-title-description {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  padding: 20px;
+
+  background-color: white;
+  border: solid 1px lightgray;
+  border-radius: 5px;
+}
+
+.pub-title-description > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pub-title-description > div:nth-child(1) {
+  padding-bottom: 20px;
+  border-bottom: solid 1px lightgray;
+}
+
+.pub-title-description-input1 {
+  width: 50%;
+  border: none;
+  height: 40px;
+  border-bottom: solid 1px lightgray;
+
+  font-size: 15px;
+  color: #999999;
+}
+
+.pub-title-description-input2 {
+  width: 50%;
+  border: none;
+  height: 80px;
+
+  font-size: 15px;
+  color: #999999;
+}
+
+/* --------------------------------------- */
+
+/* DETAILS */
+
+.pub-details {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  padding: 20px;
+
+  background-color: white;
+  border: solid 1px lightgray;
+  border-radius: 5px;
+}
+
+.pub-details > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-bottom: solid 1px lightgray;
+
+  padding-bottom: 20px;
+  border-bottom: solid 1px lightgray;
+}
+
+.pub-details > div > input {
+  width: 50%;
+  height: 40px;
+  border: none;
+  border-bottom: solid 1px lightgray;
+
+  font-size: 15px;
+  color: #999999;
+}
+
+/* --------------------------------------- */
+
+/* PRICE */
+
+.pub-price-bloc {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  padding: 20px;
+
+  background-color: white;
+  border: solid 1px lightgray;
+  border-radius: 5px;
+}
+
+.pub-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-bottom: 20px;
+}
+
+.pub-price > input {
+  width: 50%;
+  height: 40px;
+  border: none;
+  border-bottom: solid 1px lightgray;
+
+  font-size: 15px;
+  color: #999999;
+}
+
+.pub-price-checkbox {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.pub-price-checkbox > input {
+  width: 20px;
+  height: 20px;
+
+  cursor: pointer;
+}
+
+.pub-price-checkbox {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* --------------------------------------- */
+
+/* BUTTON */
+
+.pub-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pub-button > button {
+  background-color: #2baeb7;
+  color: white;
+
+  border: none;
+  border-radius: 5px;
+
+  height: 40px;
+  width: 80px;
+
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  font-size: 16px;
+
+  cursor: pointer;
+}
+
+.pub-button > button:hover {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.pub-error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 14px;
+
+  color: red;
+  border: solid 1px red;
+  padding: 8px;
+  margin-right: 100px;
+  margin-left: 100px;
+}

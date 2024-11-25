@@ -16,6 +16,7 @@ import Cookies from "js-cookie";
 //! Pages import
 import Home from "./pages/home/Home";
 import Offer from "./pages/offers/Offer";
+import Publish from "./pages/publish/Publish";
 
 //! Components import
 import Header from "./components/Header";
@@ -39,7 +40,6 @@ function App() {
 
   return (
     <>
-      {/* ROUTES */}
       <Router>
         {/* HEADER */}
         <Header
@@ -57,6 +57,7 @@ function App() {
           setComponent={setComponent}
         ></Header>
 
+        {/* ROUTES */}
         <Routes>
           {/* Home route */}
           <Route
@@ -72,8 +73,13 @@ function App() {
 
           {/* Offer route */}
           <Route path="/offers/:id" element={<Offer></Offer>}></Route>
+
+          {/* Publish route */}
+          <Route
+            path="/publish"
+            element={<Publish userToken={userToken}></Publish>}
+          ></Route>
         </Routes>
-        {/* FOOTER */}
 
         {/* Modal => Signup and Login */}
         {visible && (

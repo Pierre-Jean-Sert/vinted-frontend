@@ -131,7 +131,14 @@ function Header({
       )}
 
       <div>
-        <button className="header-button colored">Vends tes articles</button>
+        <button
+          className="header-button colored"
+          onClick={() => {
+            navigate("/publish");
+          }}
+        >
+          Vends tes articles
+        </button>
       </div>
     </header>
   );
