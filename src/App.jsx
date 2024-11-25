@@ -77,7 +77,14 @@ function App() {
           {/* Publish route */}
           <Route
             path="/publish"
-            element={<Publish userToken={userToken}></Publish>}
+            element={
+              <Publish
+                userToken={userToken}
+                visible={visible}
+                setVisible={setVisible}
+                setComponent={setComponent}
+              ></Publish>
+            }
           ></Route>
         </Routes>
 

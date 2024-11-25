@@ -13,12 +13,13 @@ import "./publish.css";
 import axios from "axios";
 
 //! Hooks import
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 //* PUBLISH FUNCTION
-function Publish({ userToken }) {
+function Publish({ userToken, visible, setVisible, setComponent }) {
   //
+
   //Form states
   const [file, setFile] = useState({});
 
@@ -37,6 +38,14 @@ function Publish({ userToken }) {
 
   // Def navigate
   const navigate = useNavigate();
+
+  // * Check user connection
+  useEffect(() => {
+    if (!userToken) {
+      setVisible(!visible);
+      setComponent("login");
+    }
+  }, [userToken]);
 
   // * handleSubmit sub-function
   const handleSubmit = async (event) => {
@@ -185,7 +194,6 @@ function Publish({ userToken }) {
             </div>
 
             <div>
-              {" "}
               <label htmlFor="condition">Etat</label>
               <input
                 id="condition"
@@ -242,6 +250,8 @@ function Publish({ userToken }) {
               ></input>
               <p>Je suis intéressé(e) par les échanges</p>
             </div>
+
+            {/* if Error */}
             {isCompleted ? <p className="pub-error">{isCompleted}</p> : ""}
           </div>
 
