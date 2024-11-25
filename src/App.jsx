@@ -75,7 +75,7 @@ function App() {
         </Routes>
         {/* FOOTER */}
 
-        {/* Modal */}
+        {/* Modal => Signup and Login */}
         {visible && (
           <Modal
             setVisible={setVisible}

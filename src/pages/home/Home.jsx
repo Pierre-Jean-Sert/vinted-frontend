@@ -21,7 +21,7 @@ function Home({ userSearch, userSort, userPrice }) {
   const [isLoading, setIsLoading] = useState(true);
 
   // Url builder
-  const baseUrl = "https://lereacteur-vinted-api.herokuapp.com/v2/offers";
+  const baseUrl = "https://lereacteur-vinted-api.herokuapp.com/v2/offers?";
 
   const filters = {
     priceMin: userPrice[0],
@@ -30,12 +30,13 @@ function Home({ userSearch, userSort, userPrice }) {
     title: userSearch,
   };
 
-  const filterBuilder = Object.entries(filters) // Made with ChatGpt
+  // Filter builder => Made with ChatGpt
+  const filterBuilder = Object.entries(filters)
     .filter(([_, value]) => value !== "")
     .map(([key, value]) => `${key}=${value}`)
     .join("&");
 
-  const url = baseUrl + "?" + filterBuilder;
+  const url = baseUrl + filterBuilder;
 
   //useEffect hook to recover data from API
   useEffect(() => {
@@ -58,7 +59,7 @@ function Home({ userSearch, userSort, userPrice }) {
 
     //fetchData calling
     fetchData();
-  }, [userSearch, userSort, userPrice]);
+  }, [url]);
 
   return (
     <>
