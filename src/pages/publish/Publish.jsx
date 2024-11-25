@@ -6,8 +6,6 @@
 
 */
 
-import Login from "../login/Login";
-
 //! Style import
 import "./publish.css";
 
