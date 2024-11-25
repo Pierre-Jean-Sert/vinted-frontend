@@ -28,6 +28,9 @@ function Header({
   setUserSort,
   userPrice,
   setUserPrice,
+  visible,
+  setVisible,
+  setComponent,
 }) {
   //
   // Def navigate
@@ -108,11 +111,20 @@ function Header({
         <div className="user">
           <button
             className="header-button"
-            onClick={() => navigate("/user/signup")}
+            onClick={() => {
+              setVisible(!visible);
+              setComponent("signup");
+            }}
           >
             S'inscrire
           </button>
-          <button className="header-button" onClick={() => navigate("/login")}>
+          <button
+            className="header-button"
+            onClick={() => {
+              setVisible(!visible);
+              setComponent("login");
+            }}
+          >
             Se connecter
           </button>
         </div>

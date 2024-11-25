@@ -16,11 +16,10 @@ import Cookies from "js-cookie";
 //! Pages import
 import Home from "./pages/home/Home";
 import Offer from "./pages/offers/Offer";
-import Signup from "./pages/signup/Signup";
-import Login from "./pages/login/login";
 
 //! Components import
 import Header from "./components/Header";
+import Modal from "./components/Modal";
 
 //! Hooks import
 import { useState } from "react";
@@ -33,6 +32,10 @@ function App() {
   const [userSearch, setUserSearch] = useState("");
   const [userSort, setUserSort] = useState("price-asc");
   const [userPrice, setUserPrice] = useState([10, 200]);
+
+  // Modal states
+  const [visible, setVisible] = useState(false);
+  const [component, setComponent] = useState("");
 
   return (
     <>
@@ -48,6 +51,10 @@ function App() {
           setUserSort={setUserSort}
           userPrice={userPrice}
           setUserPrice={setUserPrice}
+          visible={visible}
+          setVisible={setVisible}
+          component={component}
+          setComponent={setComponent}
         ></Header>
 
         <Routes>
@@ -65,29 +72,18 @@ function App() {
 
           {/* Offer route */}
           <Route path="/offers/:id" element={<Offer></Offer>}></Route>
-
-          {/* Signup route */}
-          <Route
-            path="/user/signup"
-            element={
-              <Signup
-                userToken={userToken}
-                setUserToken={setUserToken}
-              ></Signup>
-            }
-          ></Route>
-
-          {/* Login route */}
-          <Route
-            path="/login"
-            element={
-              <Login userToken={userToken} setUserToken={setUserToken}></Login>
-            }
-          ></Route>
         </Routes>
-      </Router>
+        {/* FOOTER */}
 
-      {/* FOOTER */}
+        {/* Modal */}
+        {visible && (
+          <Modal
+            setVisible={setVisible}
+            component={component}
+            setComponent={setComponent}
+          ></Modal>
+        )}
+      </Router>
     </>
   );
 }

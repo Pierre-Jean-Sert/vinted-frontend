@@ -1,5 +1,6 @@
 .sup-h2 {
   font-size: 24px;
+  margin-bottom: 40px;
 }
 
 .sup-main {
@@ -73,6 +74,8 @@
   color: #2baeb7;
   font-size: 12px;
   cursor: pointer;
+
+  margin-bottom: 10px;
 }
 
 .sup-account {
