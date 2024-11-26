@@ -64,9 +64,6 @@ function Payment({
   };
 
   return (
-    // Le composant Elements doit contenir toute notre logique de paiement
-    // On lui donner la preuve que nous sommes connectés et les options de paiement
-
     <main className="pay-main">
       {/* Command details */}
 
