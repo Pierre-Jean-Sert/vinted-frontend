@@ -17,6 +17,7 @@ import Cookies from "js-cookie";
 import Home from "./pages/home/Home";
 import Offer from "./pages/offers/Offer";
 import Publish from "./pages/publish/Publish";
+import Payment from "./pages/payment/Payment";
 
 //! Components import
 import Header from "./components/Header";
@@ -87,6 +88,20 @@ function App() {
                 setComponent={setComponent}
                 setUrlToNavigate={setUrlToNavigate}
               ></Publish>
+            }
+          ></Route>
+
+          {/* Payment route */}
+          <Route
+            path="/payment"
+            element={
+              <Payment
+                userToken={userToken}
+                visible={visible}
+                setVisible={setVisible}
+                setComponent={setComponent}
+                setUrlToNavigate={setUrlToNavigate}
+              ></Payment>
             }
           ></Route>
         </Routes>
