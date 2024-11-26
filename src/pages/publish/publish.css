@@ -237,3 +237,9 @@
   margin-right: 100px;
   margin-left: 100px;
 }
+
+.pub-preview-image {
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+}

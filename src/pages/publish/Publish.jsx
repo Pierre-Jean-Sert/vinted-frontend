@@ -28,6 +28,7 @@ function Publish({
 
   //Form states
   const [file, setFile] = useState({});
+  const [preview, setPreview] = useState(null);
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -111,17 +112,36 @@ function Publish({
         <form className="pub-form" onSubmit={handleSubmit}>
           {/* File */}
           <div className="pub-file">
-            <label htmlFor="file">
-              <i className="fa-solid fa-plus"></i> Ajoute une photo
-            </label>
-            <input
-              id="file"
-              type="file"
-              name="file"
-              onChange={(event) => {
-                setFile(event.target.files[0]);
-              }}
-            ></input>
+            {/* File preview */}
+            {preview ? (
+              <img
+                src={preview}
+                alt="Aperçu de l'article"
+                className="pub-preview-image"
+              />
+            ) : (
+              <>
+                <label htmlFor="file">
+                  <i className="fa-solid fa-plus"></i> Ajoute une photo
+                </label>
+                <input
+                  id="file"
+                  type="file"
+                  name="file"
+                  onChange={(event) => {
+                    const selectedFile = event.target.files[0];
+                    setFile(selectedFile);
+
+                    // Condition used to preview the sent image (made with ChatGpt)
+                    if (selectedFile) {
+                      setPreview(URL.createObjectURL(selectedFile));
+                    } else {
+                      setPreview(null);
+                    }
+                  }}
+                ></input>
+              </>
+            )}
           </div>
 
           {/* Title and description */}
