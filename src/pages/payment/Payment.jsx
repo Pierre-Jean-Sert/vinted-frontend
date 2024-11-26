@@ -24,11 +24,28 @@ const stripePromise = loadStripe(
 );
 
 //* PAYMENT FUNCTION
-function Payment() {
+function Payment({
+  userToken,
+  setUrlToNavigate,
+  visible,
+  setVisible,
+  setComponent,
+}) {
   //
   // Def navigate
   const navigate = useNavigate();
 
+  // * Check user connection
+  useEffect(() => {
+    if (!userToken) {
+      navigate("/");
+      setUrlToNavigate("/");
+      setVisible(!visible);
+      setComponent("login");
+    }
+  }, [userToken]);
+
+  //
   const deliveryCost = 2;
   const buyerWarranty = 1;
 
@@ -37,13 +54,13 @@ function Payment() {
   const { name, price } = location.state;
 
   //Total
-  const total = price + deliveryCost + buyerWarranty;
+  const total = Number(price) + deliveryCost + buyerWarranty;
 
   const options = {
     mode: "payment",
     title: name,
-    amount: price * 100,
-    currency: "usd",
+    amount: total * 100,
+    currency: "eur",
   };
 
   return (
@@ -90,7 +107,7 @@ function Payment() {
 
         <div>
           <Elements stripe={stripePromise} options={options}>
-            <CheckoutForm />
+            <CheckoutForm title={name} amount={total} />
           </Elements>
         </div>
       </div>

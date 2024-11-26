@@ -13,10 +13,11 @@ import {
 } from "@stripe/react-stripe-js";
 
 import { useState } from "react";
+
 import axios from "axios";
 
 //* CHECKOUTFORM FUNCTION
-function CheckoutForm() {
+function CheckoutForm({ title, amount }) {
   // Permet de faire une requête à Stripe pour confirmer le paiement
   const stripe = useStripe();
   // Permet de récupérer le contenu des inputs
@@ -38,6 +39,8 @@ function CheckoutForm() {
       return;
     }
 
+    console.log(elements);
+
     // Vérification et validation des infos entrées dans les inputs
     const { error: submitError } = await elements.submit();
     if (submitError) {
@@ -48,7 +51,11 @@ function CheckoutForm() {
 
     // Demande au backend de créer l'intention de paiement, il nous renvoie le clientSecret
     const response = await axios.post(
-      "https://lereacteur-vinted-api.herokuapp.com/v2/payment"
+      "https://lereacteur-vinted-api.herokuapp.com/v2/payment",
+      {
+        title: title,
+        amount: amount,
+      }
     );
 
     const clientSecret = response.data.client_secret;
